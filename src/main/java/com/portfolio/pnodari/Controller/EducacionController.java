@@ -84,7 +84,7 @@ public class EducacionController {
         //no este en blanco
         if (!impEducacionService.existsEducacionById(id)) {
             return new ResponseEntity(new Mensaje("El id del registro no existe"), 
-                    HttpStatus.BAD_REQUEST);
+                    HttpStatus.NOT_FOUND);
         }
         
         if (impEducacionService.existsEducacionByNombreEdu(dtoEdu.getNombreEdu()) && 
@@ -98,10 +98,10 @@ public class EducacionController {
                     HttpStatus.BAD_REQUEST);             
         }
         
-        //Pasan todas las validaciones
+        //Pasan todas las validaciones, y localizo el registro por el ID
         Educacion educacion=impEducacionService.getOne(id).get();
         
-        //Seteo los cambios
+        //Seteo los cambios del registro
         educacion.setNombreEdu(dtoEdu.getNombreEdu());
         educacion.setDescripcionEdu(dtoEdu.getDescripcionEdu());
         
@@ -119,7 +119,7 @@ public class EducacionController {
         //Validamos si el Id existe
         if (!impEducacionService.existsEducacionById(id)) {
             return new ResponseEntity(new Mensaje("El id del registro no existe"), 
-                    HttpStatus.BAD_REQUEST);
+                    HttpStatus.NOT_FOUND);
         }
         
         impEducacionService.delete(id);

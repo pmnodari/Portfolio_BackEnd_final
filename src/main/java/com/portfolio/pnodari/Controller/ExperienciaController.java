@@ -66,7 +66,7 @@ public class ExperienciaController {
     @GetMapping("/detail/{id}")
     public ResponseEntity<Experiencia> getById(@PathVariable("id") int id){
         if(!iExperienciaService.existsExperienciaById(id))
-            return new ResponseEntity(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
+            return new ResponseEntity(new Mensaje("No existe el registro"), HttpStatus.NOT_FOUND);
         Experiencia experiencia = iExperienciaService.getOne(id).get();
         return new ResponseEntity(experiencia, HttpStatus.OK);
     }
@@ -79,7 +79,7 @@ public class ExperienciaController {
         //Validación si existe el ID
         if (!iExperienciaService.existsExperienciaById(id)) {
             return new ResponseEntity(new Mensaje("El ID no existe"), 
-                                                  HttpStatus.BAD_REQUEST);
+                                                  HttpStatus.NOT_FOUND);
         }
         
         //Validamos nombre de experiencias
@@ -113,7 +113,7 @@ public class ExperienciaController {
         //Validación si existe el ID
         if (!iExperienciaService.existsExperienciaById(id)) {
             return new ResponseEntity(new Mensaje("El ID no existe"), 
-                                                  HttpStatus.BAD_REQUEST);
+                                                  HttpStatus.NOT_FOUND);
         } 
         
         iExperienciaService.delete(id);
