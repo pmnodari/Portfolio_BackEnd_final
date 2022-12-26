@@ -15,14 +15,14 @@ public class DtoHyS {
     @NotBlank
     private String nombreHS;
     
-     @NotBlank
-    private int porcentajeHS;
+    @NotBlank
+    private int porcentaje;
 
     public DtoHyS() { }
 
-    public DtoHyS(String nombreHS, int porcentajeHS) {
+    public DtoHyS(String nombreHS, int porcentaje) {
         this.nombreHS = nombreHS;
-        this.porcentajeHS = porcentajeHS;
+        this.porcentaje = porcentaje;
     }
 
     public String getNombreHS() {
@@ -33,12 +33,12 @@ public class DtoHyS {
         this.nombreHS = nombreHS;
     }
 
-    public int getPorcentajeHS() {
-        return porcentajeHS;
+    public int getPorcentaje() {
+        return porcentaje;
     }
 
-    public void setPorcentajeHS(int porcentajeHS) {
-        this.porcentajeHS = porcentajeHS;
+    public void setPorcentajeHS(int porcentaje) {
+        this.porcentaje = porcentaje;
     }
     
     

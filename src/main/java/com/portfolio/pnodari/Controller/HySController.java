@@ -52,7 +52,7 @@ public class HySController {
                     HttpStatus.BAD_REQUEST);
         }
         
-        HyS skill=new HyS(dtoHyS.getNombreHS(), dtoHyS.getPorcentajeHS());
+        HyS skill=new HyS(dtoHyS.getNombreHS(), dtoHyS.getPorcentaje());
         
         impHySkillService.save(skill);
         
@@ -98,7 +98,7 @@ public class HySController {
         HyS skill=impHySkillService.getOne(id).get();
         
         skill.setNombreHS(dtoHyS.getNombreHS());
-        skill.setPorcentaje(dtoHyS.getPorcentajeHS());
+        skill.setPorcentaje(dtoHyS.getPorcentaje());
         
         impHySkillService.save(skill);
         
