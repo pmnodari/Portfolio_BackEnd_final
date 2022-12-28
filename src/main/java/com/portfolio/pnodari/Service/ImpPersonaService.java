@@ -2,38 +2,53 @@
 package com.portfolio.pnodari.Service;
 
 import com.portfolio.pnodari.Entity.Persona;
-import com.portfolio.pnodari.Interface.IPersonaService;
 import com.portfolio.pnodari.Repository.IPersonaRepository;
 import java.util.List;
+import java.util.Optional;
+import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ImpPersonaService implements IPersonaService{
+@Transactional
+public class ImpPersonaService{
     //Instanciamos e injectamos las dependencia del Repository
     @Autowired
     IPersonaRepository iPersonaRepository;
-
-    @Override
-    public List<Persona> getPersona() {
-        List<Persona> persona=iPersonaRepository.findAll();
-        return persona;
+    
+    //Obtener Lista completa
+    public List<Persona> list(){        
+        return iPersonaRepository.findAll();
     }
-
-    @Override
-    public void savePersona(Persona pers) {
-        iPersonaRepository.save(pers);
+    
+    //Obtener por Id
+    public Optional<Persona> getOne(int id){
+        return iPersonaRepository.findById(id);
     }
-
-    @Override
-    public void deletePersona(Long id) {
+    
+    //Obtener por nombre
+    public Optional<Persona> getByNombrePerso(String nombre){
+        return iPersonaRepository.findByNombre(nombre);
+    }
+    
+    //Guardar el objeto o persona
+    public void save(Persona persona){
+        iPersonaRepository.save(persona);
+    }
+    
+    //Eliminar por Id
+    public void delete(int id){
         iPersonaRepository.deleteById(id);
     }
-
-    @Override
-    public Persona findPersona(Long id) {
-        Persona findPers=iPersonaRepository.findById(id).orElse(null);
-        return findPers;
-    }   
     
+    //Existe Persona por Id
+    public boolean existsPersonaById(int id){
+        return iPersonaRepository.existsById(id);
+    }
+    
+    //Existe Persona por Nombre
+    public boolean existsByNombrePerso(String nombre){
+        return iPersonaRepository.existsByNombre(nombre);
+    }
+   
 }

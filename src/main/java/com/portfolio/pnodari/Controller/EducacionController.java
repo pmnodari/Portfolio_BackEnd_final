@@ -108,7 +108,7 @@ public class EducacionController {
         //Guardo los cambios
         impEducacionService.save(educacion);
         
-        return new ResponseEntity(new Mensaje("Registro educación actulizado"), 
+        return new ResponseEntity(new Mensaje("Registro educación actualizado"), 
                 HttpStatus.OK);
     }
     
