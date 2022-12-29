@@ -29,9 +29,11 @@ public class Persona {
     private String profecion;
     
     @NotNull
+    @Size(min = 1, max = 600, message = "No cumple con la longitud")
     private String descripcion;
     
     //Cargaremos la img por url
+    @Size(min = 1, max = 255, message = "No cumple con la longitud")
     private String img;
 
     //Constructores
