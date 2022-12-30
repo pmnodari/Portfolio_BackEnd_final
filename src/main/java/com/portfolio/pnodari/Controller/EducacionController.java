@@ -89,7 +89,7 @@ public class EducacionController {
         
         if (impEducacionService.existsEducacionByNombreEdu(dtoEdu.getNombreEdu()) && 
                 impEducacionService.getByNombreEdu(dtoEdu.getNombreEdu()).get().getId() != id) {
-            return new ResponseEntity(new Mensaje("Ese registro de educación ya existe"), 
+            return new ResponseEntity(new Mensaje("El nombre no existe"), 
                     HttpStatus.BAD_REQUEST);
         }
         
