@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -110,7 +111,7 @@ public class PersonaController {
         return new ResponseEntity(new Mensaje("Persona Actualizada"),
                                               HttpStatus.OK);
     }
-     /*   
+    
     //Crear nueva persona
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody DtoPersona dtoPerso){
@@ -144,7 +145,7 @@ public class PersonaController {
                                               HttpStatus.OK);
     }
     
-    
+    /*
     //Borrar Persona
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") int id ){
